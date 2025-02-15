@@ -10,7 +10,7 @@
     - gcc
     - mysql
     - git
-    - mysql-server
+    - nodejs
     - zip
 
 
