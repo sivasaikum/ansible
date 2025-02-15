@@ -1,7 +1,7 @@
 - name: Variables playbook
   hosts: local
   connection: local
-  variables: #play level variables
+  vars: #play level variables
     COURSE: "DevOps with AWS"
     DURATION: 120HRS
     TRAINER: SivaKumarReddy
