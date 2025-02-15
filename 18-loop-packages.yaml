@@ -1,24 +1,8 @@
-# - name: loops playbook
-#   hosts: web
-#   become: yes
-#   tasks:
-#   - name: print names using loops
-#     ansible.builtin.package:
-#       name: "{{ item }}"
-#       state: installed
-#     loop:
-#     - gcc
-#     - mysql
-#     - git
-#     - mysql-server
-#     - zip
-
-
-- name: install packages
+- name: loops playbook
   hosts: web
   become: yes
   tasks:
-  - name: install packages
+  - name: print names using loops
     ansible.builtin.package:
       name: "{{ item }}"
       state: installed
@@ -26,4 +10,8 @@
     - gcc
     - mysql
     - git
+    - mysql-server
     - zip
+
+
+
