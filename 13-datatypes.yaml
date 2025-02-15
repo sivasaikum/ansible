@@ -1,0 +1,20 @@
+- name: datatypes playbook
+  hosts: local
+  connection: local
+  vars:
+    coursename: "DEVOPS WITH AWS" #string
+    duration: 120 #int
+    topics: #list
+    - linux
+    - aws
+    - devops
+    live: true #boolean
+    tools: #map/dictionary
+      ci/cd: jenkins
+      cloud: AWS
+      deploy: ArgoCd
+      containersation: docker
+  tasks:
+  - name: printing datatypes
+    ansible.builtin.debug:
+      msg: " course is {{ coursename }} , duration in hours {{ duration }} , topics are {{ topics }}, is it live: {{ live }} and tools are {{ tools }}"
