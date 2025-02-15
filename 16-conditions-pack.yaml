@@ -1,5 +1,6 @@
 - name: Installing packages
   hosts: web
+  become: yes
   tasks:
   - name: Install if RHEL
     ansible.builtin.dnf:
