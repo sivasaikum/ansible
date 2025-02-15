@@ -11,5 +11,5 @@
     - gcc
     - mysql
     - git
-    - mysqld
+    - mysql-server
     - zip
