@@ -1,0 +1,15 @@
+- name: Install and uninstall packages using loop
+  hosts: web
+  become: yes
+  tasks:
+  - name: Install and uninstall packages using loop
+    ansible.builtin.package:
+      name: "{{ item.name }}"
+      state: "{{ item.state }}"
+    loop:
+    - { name: 'git', state: 'present'}
+    - { name: 'mysql', state: 'absent'}
+    - { name: 'mysql-server', state: 'absent'}
+    - { name: 'nginx', state: 'present'}
+    - { name: 'nodejs', state: 'absent'}
+    - { name: 'zip', state: 'absent'}
