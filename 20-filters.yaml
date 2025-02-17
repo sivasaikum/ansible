@@ -11,3 +11,12 @@
       name: "aa, bb, cc, dd, ee"
     ansible.builtin.debug:
       msg: " converting string to list {{ name | split (',') }}"
+
+  - name: converting map to list
+    vars:
+      course:
+        name: ansible
+        duration: 10hrs
+        trainer: siva
+    ansible.builtin.debug:
+      msg: " conveting map to list {{ course | dict2items }}"
