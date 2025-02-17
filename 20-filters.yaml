@@ -20,3 +20,12 @@
         trainer: siva
     ansible.builtin.debug:
       msg: " conveting map to list {{ course | dict2items }}"
+
+  - name: convert list to map
+    vars:
+      course:
+        - {'key': 'name', 'value': 'ansible'}
+        - {'key': 'duration', 'value': '10hrs'}
+        - {'key': 'trainer', 'value': 'sivakumar'}
+    ansible.builtin.debug:
+      msg: " conveting list  to map {{ course | items2dict }}"
