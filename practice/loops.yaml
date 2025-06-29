@@ -1,15 +1,30 @@
-- name: loops
+# - name: loops
+#   hosts: web
+#   become: yes
+#   tasks:
+#   - name: Installing the pacakages
+#     ansible.builtin.package:
+#       name: "{{ item }}"
+#       state: present
+#     loop:
+#     - gcc
+#     - mysql
+#     - nginx
+#     - git
+#     - zip
+  
+- name: Installation pacakages
   hosts: web
   become: yes
   tasks:
-  - name: Installing the pacakages
-    ansible.builtin.package:
-      name: "{{ item }}"
-      state: present
+  - name: install or remove the pacakages
+    anisble.builtin.package:
+      name: "{{ item.name }}"
+      state: "{{ item.state }}"
     loop:
-    - gcc
-    - mysql
-    - nginx
-    - git
-    - zip
-  
+    - { name: 'git', state: 'absent'}
+    - { name: 'gcc', state: 'absent'}
+    - { name: 'mysql', state: 'absent'}
+    - { name: 'zip', state: 'absent'}
+    - { name: 'nginx', state: 'absent'}
+    - { name: 'httpd', state: 'present'}
