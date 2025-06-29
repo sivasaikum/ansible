@@ -1,0 +1,7 @@
+- name: print
+  hosts: web
+  tasks: 
+  - name: print the message
+    ansible.builtin.debug:
+      msg : "we are eating chicken curry with rice"
+    
