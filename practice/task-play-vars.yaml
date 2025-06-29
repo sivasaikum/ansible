@@ -13,3 +13,9 @@
       duration: 60HRS
     ansible.builtin.debug:
       msg: " Course name is {{ course }} , Trainer is {{ trainer }} and duration is {{ duration }}"
+
+  - name: variables  from different yaml
+    vars_files:
+    - vars.yaml
+    ansible.builtin.debug:
+      msg: " Course name is {{ course }} , Trainer is {{ trainer }} and duration is {{ duration }}"
