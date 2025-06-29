@@ -13,9 +13,7 @@
       duration: 60HRS
     ansible.builtin.debug:
       msg: " Course name is {{ course }} , Trainer is {{ trainer }} and duration is {{ duration }}"
-
+    # vars_files is only valid at the play level, not inside a task.
   - name: variables  from different yaml
-    vars_files:
-    - vars.yaml
     ansible.builtin.debug:
       msg: " Course name is {{ course }} , Trainer is {{ trainer }} and duration is {{ duration }}"
