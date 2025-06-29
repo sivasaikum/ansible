@@ -22,7 +22,7 @@
     ansible.builtin.dnf:
       name: mysql
       state: present
-    when: ansible_os_family == "RHEL"
+    when: ansible_os_family == "RedHat"
   - name: Install git if ubuntu
     ansible.builtin.apt:
       name: Debian
