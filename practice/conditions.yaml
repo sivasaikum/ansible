@@ -19,12 +19,12 @@
   become: yes
   tasks:
   - name: Install mysql if RHEL
-    ansible.builtin.pacakage:
+    ansible.builtin.dnf:
       name: mysql
       state: present
     when: ansible_os_family == "RHEL"
   - name: Install git if ubuntu
-    ansible.builtin.pacakage:
+    ansible.builtin.apt:
       name: Debian
       state: present
     when: ansible_os_family == "Debian"
