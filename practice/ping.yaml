@@ -3,4 +3,4 @@
   tasks:
   - name: pingng the node server
     ansible.builtin.ping:
-      data: crash
+#      data: crash
