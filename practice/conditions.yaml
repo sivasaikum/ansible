@@ -1,15 +1,30 @@
-- name: conditions
-  hosts: local
-  connection: local
-  vars:
-    number: 90
-  tasks:
-  - name: print if num is greater than 100
-    ansible.builtin.debug:
-      msg: " the given {{ number }} is greaterthan 100"
-    when: number > 100
+# - name: conditions
+#   hosts: local
+#   connection: local
+#   vars:
+#     number: 90
+#   tasks:
+#   - name: print if num is greater than 100
+#     ansible.builtin.debug:
+#       msg: " the given {{ number }} is greaterthan 100"
+#     when: number > 100
 
-  - name: print if number is lessthan 100
-    ansible.builtin.debug:
-      msg: " the given {{ number }} is lessthan 100"
-    when: number < 100
+#   - name: print if number is lessthan 100
+#     ansible.builtin.debug:
+#       msg: " the given {{ number }} is lessthan 100"
+#     when: number < 100
+
+- name: install pacakages
+  hosts: web
+  become: yes
+  tasks:
+  - name: Install mysql if RHEL
+    ansible.builtin.pacakage:
+      name: mysql
+      state: present
+    when: ansible_os_family == "RHEL"
+  - name: Install git if ubuntu
+    ansible.builtin.pacakage:
+      name: Debian
+      state: present
+    when: ansible_os_family == "Debian"
