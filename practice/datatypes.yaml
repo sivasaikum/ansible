@@ -1,0 +1,22 @@
+- name: datatypes
+  hosts: local
+  connection: local
+  vars:
+    course: "Devops"
+    duration: 120
+    topics:
+    - AWS
+    - DevOps
+    - ansible
+    - terraform
+    live: true
+    tools:
+      ci: jenkins
+      containerization: docker
+      cloud: aws
+      infra: terraform
+      configuration: ansible
+  tasks:
+  - name: printining the datatypes
+    ansible.builtin.debug:
+      msg: "course is {{ course }}, duration {{ duration }}, topics are {{ topics }}, is it true:? {{ live }}, tools are {{ tools }}"
