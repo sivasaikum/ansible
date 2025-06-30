@@ -9,8 +9,11 @@
 
   - name: Installing nodejs
     ansible.builtin.package:
-      name: nodejs
+      name: "{{ item }}"
       state: present
+    loop:
+    - nodejs
+    - mysql
   
   - name: creating a user
     ansible.builtin.user:
@@ -30,5 +33,24 @@
     ansible.builtin.unarchive:
       src: /tmp/backend.zip
       dest: /app
+      remote_src: yes
+
+  - name: Installing dependencies
+    ansible.builtin.npm:
+      path: /app
+  
+  - name: copy the service file
+    ansible.builtin.copy:
+      src: backend.service
+      dest: /etc/systemd/system/backend.service
+
+  - name: immporting the mysql schema
+    community.mysql.mysql_db:
+      state: import
+      name: all
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: mysql.jobsearchindia.online
+      target: /app/schema/backend.sql
 
    
