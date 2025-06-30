@@ -1,3 +1,5 @@
 mysql_host: mysql.jobsearchindia.online
 mysql_password: ExpenseApp@1
 mysql_user: root
+loaction: /app
+component: backend
