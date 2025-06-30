@@ -8,6 +8,7 @@
       state: present
     loop:
     - PyMySQL
+    - cryptography
   - name: Installing the mysql server
     ansible.builtin.package:
       name: mysql-server
