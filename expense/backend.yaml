@@ -44,6 +44,14 @@
       src: backend.service
       dest: /etc/systemd/system/backend.service
 
+  - name: Installing the python modules
+    ansible.builtin.pip:
+      name: "{{ item }}"
+      state: present
+    loop:
+    - PyMySQL
+    # - cryptography
+
   - name: immporting the mysql schema
     community.mysql.mysql_db:
       state: import
