@@ -50,7 +50,7 @@
       state: present
     loop:
     - PyMySQL
-    # - cryptography
+    - cryptography
 
   - name: immporting the mysql schema
     community.mysql.mysql_db:
