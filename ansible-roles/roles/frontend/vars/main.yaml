@@ -1,1 +1,3 @@
 backend_host: backend.jobsearchindia.online
+component: frontend
+loaction: /usr/share/nginx/html/
