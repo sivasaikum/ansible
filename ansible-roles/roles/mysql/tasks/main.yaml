@@ -18,7 +18,7 @@
 - name: checking the root password is set or not
   community.mysql.mysql_info:
     login_user: "{{ mysql_user }}"
-    login_password: "{{ mysql_password }}""
+    login_password: "{{ mysql_password }}"
     login_host: "{{ mysql_host }}"
   register: mysql_info
   ignore_errors: true
