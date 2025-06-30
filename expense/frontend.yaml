@@ -15,7 +15,7 @@
   
   - name: Removing the existing nginx conf
     ansible.builtin.file:
-       path: /usr/share/nginx/html/*
+       path: /usr/share/nginx/html/
        state: absent
 
   - name: download the frontend code
@@ -27,6 +27,7 @@
     ansible.builtin.unarchive:
       src: /tmp/frontend.zip
       dest: /usr/share/nginx/html
+      remote_src: yes
   
   - name: copying the nginx conf file
     ansible.builtin.copy:
