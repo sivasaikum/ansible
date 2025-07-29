@@ -6,6 +6,7 @@
     ami_id: ami-09c813fb71547fc4f
     sg_id: sg-06cd04d955630159e
     instance_type: t3.micro
+    zone: "jobsearchindia.online"
     names:
     - mysql
     - backend
@@ -37,5 +38,16 @@
     ansible.builtin.debug:
       msg: "{{ item.instances[0].private_ip_address}}"
     loop: "{{ ec2_info.results }}"
-    loop_control:
-      label: ""
+
+  - name: create a private Route 53 records for all 3 instances
+    amazon.aws.route53:
+      state: present
+      zone: "{{ zone }}"
+      record: "{{item.item}}.{{ zone }}"
+      type: A
+      ttl: 1
+      value: "{{ item.instances[0].private_ip_address}}"
+      wait: true
+      overwrite: true
+    loop: "{{ ec2_info.results }}"
+    
