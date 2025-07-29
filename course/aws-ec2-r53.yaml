@@ -27,3 +27,8 @@
       instance_type: "{{ instance_type }}"
       security_group: "{{ sg_id }}"
     loop: "{{ names }}"
+    register: "ec2_info"
+
+  - name: print the ec2 instances output
+    ansible.builtin.debug:
+      msg : "{{ ec2_info }}"
